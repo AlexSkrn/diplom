@@ -34,8 +34,11 @@ def main(path_to_file, data_folder, tsv_folder):
         ttl_lines += lines_num
         with open(os.path.join(data_folder, tsv_folder, k+'.txt'), 'w', encoding='utf-8') as to_f:
             for line in v:
-                to_f.write(line)
+                en, ru = line.split('\t')
+                to_f.write(en)
                 to_f.write('\n')
+                to_f.write(ru)
+                to_f.write('\n\n')
 
     print(f'Dictionary length is {len(contents_dict)}')
     print(f'Total lines read from original files: {counter}')
